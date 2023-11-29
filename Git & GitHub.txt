@@ -1,0 +1,140 @@
+Git & GitHub
+
+1. Giriş
+
+-Versiyon Kontrol Sistemi
+-Açık Kaynak
+-Sektör Standardı
+
+Temel Komutlar
+$ ls 
+$ pwd(print working directory) 
+$ cd(change directory) 
+$ cd Documentary 
+$ cd ..  
+-TAB tuşu kullanımı 
+$ mkdir(make directory) 
+$ touch(make file)
+$ rm(remove) 
+$ rm -rf 
+$ git 
+$ git --version
+$ git config --global user.name "Can Omercik"
+$ git config --global user.email canomercik@gmail.com
+
+Metin Editörü
+-Sublime Text(for windows) -Gedit(for Linux)
+
+----------------
+2. Git Temelleri
+
+-commit noktaları 
+-branch dallanması
+-log kayıtları
+
+-Çalışma Klasörü >>(git add)>> Index - Staging >>(git commit)>> Local Repository
+
+$ git status (güncel durumu göster)
+$ git init (initializion)(başlat)
+
+$ git add ilkdefter.txt (indexledi takip ediyor)
+$ git add ornek.py
+$ git add . (her şeyi ekler)
+
+$ git commit -m "ornek ve ilkdefter created"
+$ git log
+$ git commit -m "ilk satır kodlarımızı yazdık"
+
+Her şirketin kendi commit alma kuralları vardır.
+
+$ git commit -m "python kodunda gereksiz satır silindi"
+
+$ touch .gitignore (commitlemeğeceğin dosyaları içine yaz)
+
+-github/gitignore
+
+------------------
+3. Git Branch
+
+-HEAD terimi (güncel olarak nerde olduğumuz)
+-feat (feature)
+
+$ git branch feat
+$ git switch master
+$ git merge feat (branchi masterla birleştirdi.)
+
+$ git branch (olan branchleri göster)
+$ git switch feat
+
+-Fast Forward (branchde devam etmek ama masterda bir değişiklik yapılmaması)
+
+-Merge Conflict (Birleştirmede bir çakışma olması durumu.)
+
+-Stash
+$ git stash (commitlemediğimiz bilgiyi depolamak ve saklamak için)
+$ git stash pop (depoladığın dosyayı geri çağırma)
+$ git stash list (listelemek için)
+$ git stash apply stash@{0} (seçtiğin stashi çıkarmak için)
+$ git stash clear (hepsini siler)
+
+----------------------
+4. Geçmişe Dönme
+
+$ git restore (dosyayı eski haline getirmek için)
+
+$ git checkout {commit hash'i} (eski commite dönmek için)
+
+-Detached HEAD
+
+$ git reset <commit> (seçilen committen sonrasını siler)
+$ git reset --hard {} (zorlayarak, içerikleri de siler)
+
+$ git revert <commit> (commiti bir geriye alır ve yeni bir commite geçer, eski commit'i silmez)
+
+$ git diff (güncel dosyada farkları gösterir, add'lemediğin zaman)
+$ git diff HEAD (son commit'e göre ne değişti)
+$ git diff <commit> <commit> (iki commit arasındaki fark)
+$ git diff master feat (iki branch arasındaki fark)
+
+-Rebase
+-master'ı kendi branchine aldığında oluşan merge commitlerden kurtulmak için bir yöntemdir.
+-branchini paylaşmadıysan ve kimse kullanmıyorsa rebase yapmak önerilir.
+
+$ git rebase master (branchin içindeyken)
+
+----------------------
+5. GitHub
+
+Projelerin, git'lerin paylaşıldığı bir forum. Projeleri geliştirmek, açık kaynaklı ve topluluk ile geliştirmek için yararlı bir yer. Private olarak da paylaşılabilir ve sadece izin verilenler görebilir(şirket vs.)
+
+-Star (Projeleri takip etmek için)
+-Issues (Projelere feedback yapmak için)
+-Pull Request (Projeye katkı sağlamak, geliştirmek için)
+
+-Repo oluşturmak (private veya public)
+-README
+-.gitignore
+-license
+
+$ git remote add origin <url>
+$ git push -u origin master (-u kullandığımız için artık sadece git push kullanabiliriz.
+$ git push origin feat
+
+- Compare & pull request
+- Merge pull request
+
+$ git remote (remote'u göster)
+$ git branch -r (remote branchleri listele)
+$ git chechkout origin/master (remote branchlere bakmak için)
+
+$ git fetch origin master (getirir ama dosyaları değiştirmez)
+$ git pull (git fetch + git merge, tüm değişiklikleri getirir.)
+
+$ git clone <url.git> (başka bir dosyayı çekmek için)
+
+-fork dosyayı alıp kendi repositoryine geçmek ve orda geliştirmek için. Sonra pull request atılabilir.
+
+-Private projeler için collaborator eklemek ve invite yollamak. Public projelerden farklı olarak collaborator olduktan sonra push iznimiz olur.
+-Doğrudan master'a müdahale yerine branch açıp orda çalışmak daha mantıklı.
+
+-README.md (mark down, kendi syntax'i vardır, github md cheat sheet)
